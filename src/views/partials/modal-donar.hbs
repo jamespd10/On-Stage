@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" id="modalDonar" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabelDonaciones">Donaciones</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Cantidad</label>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-secondary" id="btn-menos"><i class="fas fa-minus"></i></button>
+                            </div>
+                            <input type="number" class="form-control" id="cantidad-donacion" value="1">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" id="btn-mas"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textAreaMensajeDonacion">Mensaje</label>
+                        <textarea class="form-control" id="textAreaMensajeDonacion" rows="1"
+                            maxlength="50"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-dismiss-modal" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btn-dismiss-modal"
+                    id="btn-modal-donar-enviar">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

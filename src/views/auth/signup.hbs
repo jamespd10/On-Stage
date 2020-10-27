@@ -1,0 +1,56 @@
+<div class="container mt-4 mb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <div class="card form-card">
+                <h3 class="card-title text-center mt-2">Formulario de Registro</h3>
+                <div class="card-body">
+                    <form action="/signup" method="post">
+                        <div class="form-group">
+                            <label for="inputNombre">Nombre</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text input-group-icon"><i class="fas fa-user"></i></div>
+                                </div>
+                                <input type="text" id="inputNombre" name="nombre" class="form-control form-input-card"
+                                    autofocus required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputApellido">Apellido</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text input-group-icon"><i class="fas fa-user"></i></div>
+                                </div>
+                                <input type="text" id="inputApellido" name="apellido"
+                                    class="form-control form-input-card" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUsername">Username</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text input-group-icon"><i class="fas fa-user"></i></div>
+                                </div>
+                                <input type="text" id="inputUsername" name="username"
+                                    class="form-control form-input-card" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5">Password</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text input-group-icon"><i class="fas fa-lock"></i></div>
+                                </div>
+                                <input type="password" id="inputPassword5" name="password"
+                                    class="form-control form-input-card" aria-describedby="passwordHelpBlock" required>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-block btn-form-card" type="submit"><i
+                                class="fas fa-paper-plane"></i>
+                            Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

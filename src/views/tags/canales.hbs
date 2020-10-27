@@ -1,0 +1,56 @@
+<h1 class="mx-5">Canales con el tag: {{tag}}</h1>
+{{#if canal}}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        {{#each canal}}
+        <div class="col-sm-4 my-2">
+            <div class="img-container-buscar">
+                <a href="/profile/{{username}}">
+                    <img src="/img/profile/{{imagen}}" class="img-thumbnail" alt="imagen {{username}}">
+                    <div class="content px-2">
+                        <p class="h2 text-capitalize">{{name}} {{apellido}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{else}}
+<div class="container mt-4">
+    <div class="row justify-content-center mb-2">
+        <div class="col-md-12 text-center">
+            <span class="h2 d-block">
+                Lo sentimos, no hay canales con el tag "{{tag}}"
+            </span>
+            <span class="h2 d-block">
+                Otros tags que podrían interesarte:
+            </span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        {{#each tags}}
+        <div class="col-md-4 mb-4" id="col-card-tags">
+            <div class="card tags-card">
+                <a href="/tags/{{name}}">
+                    <img src="{{imagen}}" width="200" height="200" class="card-img-top img-thumbnail" alt="">
+                </a>
+                {{#if user.artista}}
+                <div class="icon-card-top">
+                    <a href="#">
+                        <i class="fas fa-plus" data-toggle="tooltip" title="Agregar tag"></i>
+                    </a>
+                </div>
+                {{/if}}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="text-decoration-none text-light" href="/tags/{{name}}">{{name}}</a>
+                    </h5>
+                    <p class="card-text text-muted font-italic">99, 999 usuarios taggearon</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,187 @@
+<h1 class="mx-5">Configuración del perfil</h1>
+<div class="container">
+    <div class="row mt-4">
+        {{!--COLUMNA DE CONFIGUTACION DEL PERFIL--}}
+        <div class="col-md">
+            <div class="card card-form-config">
+                <div class="card-header">
+                    <h2>Datos del perfil</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/profile/edit/{{user.id}}?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputConfigName">Nombre</label>
+                                <input type="text" class="form-control" id="inputConfigName" value="{{user.name}}"
+                                    name="name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputConfigApellido">Apellido</label>
+                                <input type="text" class="form-control" id="inputConfigApellido"
+                                    value="{{user.apellido}}" name="apellido">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputConfigCorreo">Correo</label>
+                                <input type="email" class="form-control" id="inputConfigCorreo" name="correo"
+                                    value="{{user.correo}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputConfigPassword">Password</label>
+                                <input type="password" class="form-control" id="inputConfigPassword" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customFileLangHTML">Imagen</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFileLangHTML" name="file">
+                                <label class="custom-file-label" for="customFileLangHTML"
+                                    data-browse="Elegir">Seleccionar imagen</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfigUbicacion">Ubicación</label>
+                            <input type="text" class="form-control" id="inputConfigUbicacion" name="ubicacion"
+                                value="{{user.ubicacion}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfigWeb">Web</label>
+                            <input type="text" class="form-control" id="inputConfigWeb" name="web" value="{{user.web}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfigDescripcion">Descripción</label>
+                            <textarea class="form-control" id="inputConfigDescripcion" rows="3"
+                                name="descripcion">{{user.descripcion}}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Enviar <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{!--COLUMNA DE CONFIGURACION DE METODOS DE PAGO--}}
+        {{!--
+        <div class="col-md">
+            <div class="card card-form-config">
+                <div class="card-header">
+                    <h2>Métodos de pago</h2>
+                </div>
+                <div class="card-body">
+                    <p class="h3">Tarjeta</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputAddress2">Número</label>
+                            <input type="text" class="form-control" id="inputAddress2">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress2">Caducidad</label>
+                                <input type="text" class="form-control" id="inputAddress2">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress2">Código</label>
+                                <input type="text" class="form-control" id="inputAddress2">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Enviar</button>
+                    </form>
+                    <p class="h3">Paypal</p>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="inputEmail4">Correo</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Enviar <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        --}}
+    </div>
+    <hr class="hr-form-stream-config">
+    {{!--ROW DE CONFIGURACION DEL STREAM--}}
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card card-form-config">
+                <div class="card-header">
+                    <h2>Configuración de Streams</h2>
+                </div>
+                <div class="card-body">
+                    {{#if user.artista}}
+                        {{#if tags}}
+                            <p class="h3">Ya eres Streamer, puedes agregar más tags!</p>
+                        {{else}}
+                            <p class="h3">Ya tienes el máximo de tags agregados!</p>
+                        {{/if}}
+                    {{else}}
+                        <p class="h3">Convierte te en Streamer!</p>
+                        <div class="alert alert-dark" role="alert">
+                                Debes agregar un tag. Puedes agregar otros mas tarde, pero debes aceptar los
+                                <a href="/profile/terminos/condiciones" class="alert-link">términos y condiciones</a>.
+                            </div>
+                    {{/if}}
+                    {{#if user.artista}}
+                    <hr class="hr-form-stream-config">
+                        <div class="form-group">
+                                <p class="h4">Tus tags: </p>
+                                {{#each usuario}}
+                                    {{#each tags}}
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input is-valid" type="checkbox" 
+                                            id="check{{this}}" value="{{this}}" name="check" checked disabled>
+                                        <label class="form-check-label" for="check{{this}}">{{this}}</label>
+                                    </div>
+                                    {{/each}}
+                                {{/each}}
+                        </div>
+                    {{/if}}
+                    {{#if tags}}
+                    <hr class="hr-form-stream-config">
+                    <form action="/profile/streamer/accepted/{{user.id}}" method="POST" id="formSendTagsTerminos">
+                        <div class="form-group">
+                            <p class="h4">Tags: </p>
+                            {{#each tags}}
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="check{{name}}" value="{{name}}" name="check">
+                                <label class="form-check-label" for="check{{name}}">{{name}}</label>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <hr class="hr-form-stream-config">
+                        <div class="form-group">
+                            {{#if user.artista}}
+                                <label class="form-check-label" for="checkBoxTerminos">
+                                    <a href="/profile/terminos/condiciones">Ver términos y condiciones</a>
+                                </label>
+                            {{else}}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="checkBoxTerminos" 
+                                            value="1" name="checkBoxTerminos"
+                                        required>
+                                    <label class="form-check-label" for="checkBoxTerminos">
+                                        He leído y acepto los <a href="/profile/terminos/condiciones">términos y
+                                            condiciones</a> de uso
+                                    </label>
+                                </div>
+                            {{/if}}
+                        </div>
+                        {{#if user.artista}}
+                            <button type="submit" class="btn btn-secondary">Enviar <i
+                                class="fas fa-paper-plane"></i></button>
+                        {{else}}
+                            <button type="submit" class="btn btn-secondary">Enviar 
+                                <i class="fas fa-paper-plane"></i></button>
+                        {{/if}}
+                    </form>
+                    {{else}}
+                        <label class="form-check-label" for="checkBoxTerminos">
+                            <a href="/profile/terminos/condiciones">Ver términos y condiciones</a>
+                        </label>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

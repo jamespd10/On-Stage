@@ -1,0 +1,63 @@
+<div class="container-fluid my-4">
+  {{>modal}}
+  <div class="row">
+    <div class="col mb-4" id="grabar-container">
+      <h1 class="text-center">Transmisión en vivo</h1>
+      <div class="streaming-container">
+        <div class="embed-responsive embed-responsive-16by9" id="embed-responsive-video" style="display: none;">
+          <div class="streams-overlayStreaming"></div>
+            <video src="" id="video" class="embed-responsive-item video-col-stream"></video>
+          <div class="icon-streaming-top px-2" id="icon-streaming-top" style="display: none;">
+            <div class="text-dark span-div-time">
+              <span class="badge badge-dark" for="dispositivosDeVideo" id="curtimeText"></span>
+            </div>
+            <div class="text-dark">
+              <span class="badge badge-dark"><i class="fas fa-eye"></i> 1200</span>
+            </div>
+            <i class="fas fa-circle" id="live-icon"></i>
+          </div>
+        </div>
+        <div class="row" id="rowSelectDispositivos">
+          <div class="form-group col">
+            <label for="dispositivosDeAudio">Micrófono:</label><br>
+            <select class="custom-select select-stream-resource" name="dispositivosDeAudio"
+              id="dispositivosDeAudio"></select>
+          </div>
+          <div class="form-group col-sm">
+            <label for="dispositivosDeVideo">Cámara:</label><br>
+            <select class="custom-select select-stream-resource" name="dispositivosDeVideo"
+              id="dispositivosDeVideo"></select>
+          </div>
+        </div>
+        <div class="row justify-content-between mt-2">
+          <div class="col mt-2">
+            <button class="btn btn-secondary btn-streaming" id="btnComenzarVideo" onclick="comenzarStream()">
+              <i class="far fa-play-circle"></i>
+              Habilitar Cámara
+            </button>
+            <button class="btn btn-secondary btn-streaming" id="btnComenzarStream" style="display: none;">
+              <i class="far fa-play-circle"></i>
+              Comenzar Stream
+            </button>
+            <button class="btn btn-secondary btn-streaming" id="btnDetenerVideo" style="display: none;">
+              <i class="far fa-stop-circle" id="icon-detener"></i>
+              Detener
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md" id="streaming-col">
+      <h1 class="text-center">Comentarios</h1>
+      <div class="scroll-col-stream" id="scroll-col-stream-streamer">
+
+        <div class="container-chat darker text-center" id="col-withoutcoment-streamer">
+          <span class="display-4">
+            Aun no tiene comentarios <i class="fas fa-frown"></i><i class="fas fa-heart-broken"></i>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

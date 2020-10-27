@@ -1,0 +1,165 @@
+/*CSS PARA BOTONES DEL VIDEO*/
+
+video{
+    width: 100%;
+    height: auto;
+}
+
+.videoContainer, #videoContainer-StreamView{
+    overflow: hidden;
+    position: relative;
+}
+
+.videoContainer:hover .controlsVideoBar{
+    transform: translateY(0);
+}
+/*CODIGO PARA EL ALERT DE DONACION EN LOS STREAMS*/
+.streams-overlay, .streams-overlayStreaming{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    /*top: 40%;*/
+    z-index: 100;
+    /*display: none;*/
+    transition: 0.3s;
+}
+.streams-overlay p, .streams-overlayStreaming p{
+    font-size: x-small;
+}
+@media (max-width: 463px) {
+    .streams-overlay, .streams-overlayStreaming{
+        width: 100%;
+        top: 40%;
+    }
+    .streams-overlay p, .streams-overlayStreaming p{
+        font-size: xx-small;
+    }
+}
+@media (max-width: 353px) {
+    .streams-overlay, .streams-overlayStreaming{
+        width: 90%;
+        top: 40%;
+    }
+}
+@media (max-width: 289px) {
+    .streams-overlay, .streams-overlayStreaming{
+        width: 80%;
+        top: 40%;
+    }
+}
+
+/*FIN DEL CODIGO PARA EL ALERT DE DONACION EN LOS STREAMS*/
+
+.controlsVideoBar{
+    background: rgb(0, 0, 0, 0.7);
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transform: translateY(100%) translateY(-6px);
+    transition: all 0.2s;
+}
+
+.controlsVideoBar .volumeSlider{
+    width: 5em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.curtimeText{
+    color: #fff;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.controlsVideoBar .btnFullScreen{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.orange-bar{
+    height: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+}
+.orange-juice{
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+    -webkit-appearance: none;
+    background-color: red;
+}
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    height:5px;
+    width:100%;
+    cursor: pointer;
+    /*background: #07C;*/
+    background: red;
+    margin-bottom: 10px;
+}
+  
+/*input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2px solid #07C;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    margin-top: 0px;*/ /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    /*box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);*/
+/*}
+  
+input[type=range]:focus {
+    outline: none;
+}*/
+/*FIN CSS PARA BOTONES DEL VIDEO*/
+
+
+/*CSS PARA EL CAROUSEL*/
+.carousel-item img{
+    border-radius: 10px;
+    width: 600;
+    height: 400px;
+}
+#videos img{
+    border-radius: 10px;
+    margin-top: 10px;
+}
+/*FIN CSS PARA EL CAROUSEL*/
+
+/*PARA VIDEOS VARIOS*/
+.img-index-videos-fluid{
+    width: 100%;
+    height: 200px;
+}
+
+.container-chat-videos {
+    background-color: rgb(65, 65, 65);
+}
+
+.darker-index {
+    border-color: #ccc;
+    background-color: #18191a;
+}
+  
+.container-chat-videos::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container-chat-videos img{
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 50% !important;
+}

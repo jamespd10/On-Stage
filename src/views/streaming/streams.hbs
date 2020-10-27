@@ -1,0 +1,155 @@
+<div class="container-fluid my-4">
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="d-none" id="formPaypal">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="G9NC5YG8WBNC4" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit"
+            title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_PA/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+    {{> modal-donar}}
+    {{> modal}}
+    {{#each streamer}}
+        {{#if live}}
+        {{else}}
+        <div class="row justify-content-center">
+            <p class="h1" id="parrafoValidarDirecto">El streamer no ha comenzado un directo</p>
+        </div>
+        {{/if}}
+    {{/each}}
+    <div class="row">
+        <div class="col mb-4" id="grabar-container">
+            <h1 class="text-center">Transmisión en vivo</h1>
+            <div class="streaming-container">
+                <div class="row justify-content-center mb-4" id="row-video-container">
+                    <div class="col" id="videoContainerRow">
+                        <div class="streams-overlay"></div>
+                        <div class="embed-responsive embed-responsive-16by9" id="videoContainer-StreamView">
+                            <video src="" id="video-streaming" class="embed-responsive-item video-col-stream"
+                                poster="/img/LogoOnStage.png">
+                            </video>
+                            <div class="controlsVideoBar">
+                                <div class="orange-bar">
+                                    <input type="range" class="form-control-range orange-juice" max="100" min="99"
+                                        step="1" value="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{!--PARA PANTALLAS GRANDES--}}
+                        <div class="container-chat container-chat-streams darker d-none d-lg-block">
+                            {{#each streamer}}
+                            <img src="/img/profile/{{imagen}}" alt="Avatar" class="left">
+                            {{/each}}
+                            <div class="d-flex justify-content-between">
+                                <p class="h3 text-capitalize">
+                                    {{#each streamer}}
+                                    {{name}} {{apellido}}
+                                    {{/each}}
+                                </p>
+                                <div>
+                                    {{#if user}}
+                                    <button class="btn btn-link text-decoration-none btn-stream-follow" onclick="seguirStreamer()">
+                                        <span class="badge badge-secondary">Seguir</span>
+                                    </button>
+                                    <button class="btn btn-link text-decoration-none" onclick="mostrarModalDonar()">
+                                        <span class="badge badge-secondary">Donar</span>
+                                    </button>
+                                    {{else}}
+                                    <a class="text-decoration-none" href="/signin">
+                                        <span class="badge badge-secondary">Seguir</span>
+                                    </a>
+                                    <a class="text-decoration-none" href="/signin">
+                                        <span class="badge badge-secondary">Donar</span>
+                                    </a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{#each streamer}}
+                            <p>{{descripcion}}</p>
+                            <p>
+                                {{#each tags}}
+                                <a class="text-decoration-none" href="/tags/{{this}}">
+                                    <span class="badge badge-danger">{{this}}</span>
+                                </a>
+                                {{/each}}
+                            </p>
+                            {{/each}}
+                        </div>
+                        {{!--PARA PANTALLAS PEQUEÑAS--}}
+                        <div class="container-chat container-chat-streams darker d-lg-none">
+                            {{#each streamer}}
+                            <img src="/img/profile/{{imagen}}" alt="Avatar" class="left">
+                            {{/each}}
+                            <div class="row justify-content-between">
+                                <p class="h3 text-capitalize">
+                                    {{#each streamer}}
+                                    {{name}} {{apellido}}
+                                    {{/each}}
+                                </p>
+                                <div>
+                                    {{#if user}}
+                                    <button class="btn btn-link text-decoration-none btn-stream-follow" onclick="seguirStreamer()">
+                                        <span class="badge badge-secondary">Seguir</span>
+                                    </button>
+                                    <button class="btn btn-link text-decoration-none" onclick="mostrarModalDonar()">
+                                        <span class="badge badge-secondary">Donar</span>
+                                    </button>
+                                    {{else}}
+                                    <a class="text-decoration-none" href="/signin">
+                                        <span class="badge badge-secondary">Seguir</span>
+                                    </a>
+                                    <a class="text-decoration-none" href="/signin">
+                                        <span class="badge badge-secondary">Donar</span>
+                                    </a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{#each streamer}}
+                            <p>{{descripcion}}</p>
+                            <p>
+                                {{#each tags}}
+                                <a class="text-decoration-none" href="/tags/{{this}}">
+                                    <span class="badge badge-danger">{{this}}</span>
+                                </a>
+                                {{/each}}
+                            </p>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md" id="streaming-col">
+            <h1 class="text-center">Comentarios</h1>
+            <div class="scroll-col-stream">
+                <div class="container-chat darker text-center" id="col-withoutcoment">
+                    <span class="display-4">
+                        Aun no hay comentarios <i class="fas fa-frown"></i><i class="fas fa-heart-broken"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputSendMessage" placeholder="Escribir..."
+                            name="mensajestream">
+                        <div class="input-group-append">
+                            {{#if user}}
+                            <button class="input-group-text btn" id="btnEviarMensajeEspectador">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            {{else}}
+                            <a class="input-group-text btn" href="/signin">
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

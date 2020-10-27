@@ -1,0 +1,142 @@
+/*PARA CUSTOMIZAR EL SIDEBAR*/
+.col-bar{
+    background-color: #18191a; 
+    min-height: calc(100vh - 56px);
+    max-height: 100%;
+    position: fixed;
+    transition: 0.3s;
+    /*PARA AGREGAR SCROLLBAR AL DIV*/
+    overflow-y: auto;
+    overflow-x:hidden;
+    /*PARA SCROLLBAR EN FIREFOX*/
+    scrollbar-color: rgb(65, 65, 65) #18191a;
+    scrollbar-width: thin;
+}
+
+/*COLOR DEL SIDEBAR*/
+.col-bar a{
+    color: white;
+}
+.col-bar .nav-side-link-bar:hover{
+    background-color: rgb(77, 77, 77);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+/*IMAGEN DEL SIDEBAR*/
+.col-bar a img{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+/*CLASE CONTRAIDA DEL SIDEBAR*/
+.col-bar.col-bar-toggled{
+    max-width: 90px;
+}
+/*CLASE DEL SIDEBAR PARA CELULAR*/
+.col-bar.col-bar-cellPhone{
+    display: none;
+}
+/*ANIMACION DEL CONTRAINER*/
+.col-container{
+    transition: 0.3s;
+}
+/*CLASE DEL CONTAINER CONTRAIDO*/
+.col-container.col-container-toggled{
+    margin-left: 91px;
+}
+/*CLASE DEL CONTAINER PARA CELULAR*/
+.col-container.col-container-cellPhone{
+    margin-left: 0px;
+}
+/*PARA PONER EL HEADER DEL SIDEBAR EN ROW*/
+#row-txt{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/*CLASE DEL TEXTO DEL SIDEBAR CONTRAIDO*/
+.col-bar.col-bar-toggled #txt{
+    display: none;
+}
+/*PARA QUITAR EL ENLACE DE LA ETIQUETA A*/
+.col-bar #a-btn-contraer{
+    text-decoration: none;
+}
+/*PARA CUANDO ESTÉ CONTRAIDO*/
+.col-bar.col-bar-toggled #row-txt{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+/*PARA CUANDO LA PANTALLA SEA MAYOR*/
+@media (min-width: 768px) {
+    .col-bar {
+      max-width: 225px;
+    }
+    .col-container{
+        margin-left: 226px;
+    }
+    /*PARA LAS REDES SOCIALES DEL SIDEBAR*/
+    .redes-sociales{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 0.1em;
+        margin-bottom: 5em;
+    }
+}
+/*CUANDO LA PANTALLA SEA MENOR*/
+@media (max-width: 767px) {
+        .col-bar {
+        /*display: none;*/
+      max-width: 91px;
+    }
+    .col-bar #txt{
+        display: none;
+    }
+    /*PARA EL HEADER DEL SIDEBAR CUANDO SEA MENOR LA PANTALLA*/
+    .col-bar #row-txt{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .col-container{
+        margin-left: 91px;
+    }
+    .col-container .tab-content .tab-pane .carousel .carousel-inner .carousel-item img{
+        height: 200px;
+    }
+    /*PARA LAS REDES SOCIALES DEL SIDEBAR CUANDO SEA MENOR LA PANTALLA*/
+    .redes-sociales{
+        flex-direction: column;
+        margin-left: 0.5em;
+        margin-bottom: 5em;
+    }
+    .redes-sociales #fb, .redes-sociales #ig, .redes-sociales #tw{
+        width: 100%;
+        margin-bottom: 1em;
+    }
+}
+
+#span-redes{
+    justify-content: center;
+}
+
+.redes-sociales.social-toggled{
+    flex-direction: column;
+    margin-left: 0.5em;
+    margin-bottom: 5em;
+}
+.redes-sociales.social-toggled #fb, .redes-sociales.social-toggled #ig, .redes-sociales.social-toggled #tw{
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.redes-sociales i{
+    color: white;
+}

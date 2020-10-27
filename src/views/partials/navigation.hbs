@@ -1,0 +1,99 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" id="navbar">
+    <a class="navbar-brand" href="/">
+        <img src="/img/LogoMain.png" width="37" height="37" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {{#if user}}
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="right-item nav-item nav-link mx-1" href="/tags"><i class="fas fa-tags" data-toggle="tooltip"
+                    title="Tags"></i><span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-capitalize d-none" href="/profile" id="nickname">{{user.username}}</a>
+            <a class="nav-item nav-link text-capitalize" href="/profile" id="nombre-user">{{user.name}} {{user.apellido}}</a>
+            {{!--<a class="right-item nav-item nav-link mx-1" href="/"><i class="fas fa-home" data-toggle="tooltip"
+                    title="Inicio"></i> <span class="sr-only">(current)</span></a>--}}
+        </div>
+        <div class="navbar-nav mx-auto">
+            <form class="form-inline my-1 my-lg-0" action="/buscar" method="POST">
+                <div class="input-group">
+                    <input type="search" class="form-control" id="validationDefaultUsername" placeholder="Buscar"
+                        name="buscar" aria-label="Search" aria-describedby="inputGroupPrepend2" required>
+                    <div class="input-group-append">
+                        <button class="input-group-text btn" id="inputGroupPrepend2" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="nav-bar-right navbar-nav">
+            <a class="right-item nav-item nav-link mx-1" href="/"><i class="fas fa-home" data-toggle="tooltip"
+                    title="Home"></i></a>
+            {{#if user.artista}}
+                <a class="right-item nav-item nav-link mx-1" href="/streaming">
+                    <i class="fas fa-video" data-toggle="tooltip"title="Transmitir"></i>
+                </a>
+            {{/if}}
+            {{!--
+            <a class="right-item nav-item nav-link mx-1" href="#"><i class="fas fa-link" data-toggle="tooltip"
+                    title="Links"></i></a>
+            <a class="right-item nav-item nav-link mx-1" href="#"><i class="fas fa-bell"
+                    data-toggle="tooltip" title="Notificaciones"></i></a>
+            --}}
+            <div class="dropdown right-item mx-1">
+                <a class="nav-link" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    {{!--<i class="fas fa-sort-down"></i>--}}
+                    <i class="fas fa-chevron-circle-down" data-toggle="tooltip" title="Más"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right mt-3" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/profile">
+                        <div class="row">
+                            <div class="col">
+                                <img src="/img/profile/{{user.imagen}}" width="50" height="50" alt="" id="img-down-profile">
+                            </div>
+                            <div class="col">
+                                <div class="row text-capitalize">{{user.name}} {{user.apellido}}</div>
+                                <div class="row text-muted">Ver Perfil</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider my-1"></div>
+                    <a class="dropdown-item" href="/profile/{{user.username}}/configuracion"><i class="fas fa-cog"></i> Configuración</a>
+                    <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="right-item nav-item nav-link mx-1" href="/tags"><i class="fas fa-tags" data-toggle="tooltip"
+                    title="Tags"></i><span class="sr-only">(current)</span></a>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <form class="form-inline my-1 my-lg-0" action="/buscar" method="POST">
+                <div class="input-group">
+                    <input type="search" class="form-control" id="validationDefaultUsername" placeholder="Buscar"
+                        name="buscar" aria-label="Search" aria-describedby="inputGroupPrepend2" required>
+                    <div class="input-group-append">
+                        <button class="input-group-text btn" id="inputGroupPrepend2" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="nav-bar-right navbar-nav ml-auto">
+            <a class="right-item nav-item nav-link mx-1" href="/"><i class="fas fa-home" data-toggle="tooltip"
+                    title="Home"></i></a>
+            <a class="right-item nav-item nav-link mx-1" href="/signin"><i class="fas fa-sign-in-alt"
+                    data-toggle="tooltip" title="Ingresar"></i></a>
+            <a class="right-item nav-item nav-link mx-1" href="/signup"><i class="fas fa-user-plus"
+                    data-toggle="tooltip" title="Registrarse"></i></a>
+        </div>
+    </div>
+    {{/if}}
+</nav>

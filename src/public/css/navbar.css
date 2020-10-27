@@ -1,0 +1,92 @@
+/*CSS PARA EL INPUT DEL NAVBAR*/
+#navbar{
+    background-color: #242526;
+    /*border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgb(12, 12, 12);*/
+    filter: drop-shadow(1px 1px 4px rgb(15, 15, 15));
+}
+#navbar img{
+    border-radius: 50%;
+    background-color: white;
+}
+#validationDefaultUsername{
+    background-color: rgb(77, 77, 77);
+    color: #fff;
+    border-color: rgb(77, 77, 77);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.input-group-prepend button{
+    background-color: rgb(65, 65, 65);
+    border-color: rgb(65, 65, 65);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.input-group-append button{
+    background-color: rgb(65, 65, 65);
+    border-color: rgb(65, 65, 65);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+button i{
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #242526;
+    border-style: solid;
+    border-color: rgb(77, 77, 77);
+    padding: 5px;
+    border-radius: 10px;
+    filter: drop-shadow(1px 1px 4px rgb(15, 15, 15));
+    /*box-shadow: 0.5px 0.5px 10px white;*/
+}
+.dropdown-menu a{
+    color: #fff;
+}
+.dropdown-menu a:hover, .dropdown-menu a.active{
+    background-color: rgb(77, 77, 77);
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+.dropdown-divider{
+    width: 90%;
+    margin: auto;
+    border-color: rgb(77, 77, 77);
+}
+#img-down-profile{
+    border-radius: 50%;
+}
+@media (min-width: 992px) {
+    .right-item{
+        border-radius: 50%;
+        background-color: rgb(77, 77, 77);
+    }
+    .right-item i{
+        padding: 2px;
+    }
+    .right-item.active{
+        background-color: #FA3845;
+    }
+    .active i{
+        color: white;
+    }
+    .dropdown-menu{
+        width: 300px;
+        transition: 0.3s;
+    }
+}
+/*PARA CUANDO LA PANTALLA SEA DE CELULAR*/
+@media (max-width: 991px) {
+    .nav-bar-right{
+        flex-flow: row nowrap;
+        display: inline-flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .dropdown .dropdown-menu{
+        position: absolute;
+    }
+}
+/**FIN NAVBAR CSS/

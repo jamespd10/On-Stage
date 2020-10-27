@@ -1,0 +1,1 @@
+es necesario crear una collection llamada tags agregando el archivo tags.json a la base de datos

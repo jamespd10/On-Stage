@@ -1,0 +1,23 @@
+<h1 class="mx-5">Resultados con: {{buscar}}</h1>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        {{#each usuario}}
+            <div class="col-sm-4 my-2">
+                <div class="img-container-buscar">
+                    <a href="/profile/{{username}}">
+                        <img src="/img/profile/{{imagen}}" class="img-thumbnail" alt="imagen {{username}}">
+                        <div class="content px-2">
+                            <p class="h2 text-capitalize">{{name}} {{apellido}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-12 text-center">
+                <span class="h2 d-block">
+                    Lo sentimos, no se encontró resultado con "{{buscar}}"
+                </span>
+            </div>
+        {{/each}}
+    </div>
+</div>

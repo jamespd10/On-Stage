@@ -1,0 +1,26 @@
+/*PARA AGREGAR SCROLLBAR AL CONTAINER EN FIREFOX*/
+html{
+    overflow-y: auto;
+    overflow-x:hidden;
+    scrollbar-color: rgb(65, 65, 65) #18191a;
+    scrollbar-width: thin;
+}
+body{
+    background-color: #18191a;
+    color: #C9C9C9;
+}
+/*PARA EL SCROLLBAR EN CHROME Y SAFARI*/
+::-webkit-scrollbar {
+    width: 8px;
+    /*height: 15px;*/
+}
+
+::-webkit-scrollbar-track-piece  {
+    background-color: #18191a;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    /*height: 30px;*/
+    background-color: rgb(65, 65, 65);
+}
+/*FIN DE EDICION DEL SCROLLBAR*/

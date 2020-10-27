@@ -1,0 +1,23 @@
+.card-form-config{
+    background-color: rgb(15, 15, 15);
+}
+.card-form-config .card-header{
+    background-color: rgb(77, 77, 77);
+}
+.card-form-config .card-body form input, .card-form-config .card-body form select, 
+.card-form-config .card-body form button, .card-form-config .card-body form .custom-file label{
+    background-color: rgb(77, 77, 77);
+    border-color: rgb(77, 77, 77);
+    border-radius: 30px;
+    color: #fff;
+}
+.card-form-config .card-body form textarea{
+    background-color: rgb(77, 77, 77);
+    border-color: rgb(77, 77, 77);
+    border-radius: 10px;
+    color: #fff;
+}
+.card-form-config .card-body form button:hover{
+    background-color: #18191a;
+    border-color: #18191a;;
+}

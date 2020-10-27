@@ -1,0 +1,26 @@
+.form-card{
+    background-color: #202020;
+    filter: drop-shadow(1px 1px 4px rgb(15, 15, 15));
+}
+.form-input-card, .form-input-card:focus{
+    background-color: rgb(77, 77, 77);
+    color: #fff;
+    border-color: rgb(77, 77, 77);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.input-group-icon{
+    background-color: rgb(65, 65, 65);
+    border-color: rgb(65, 65, 65);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.input-group-icon i{
+    color: #C9C9C9;
+}
+
+.btn-form-card{
+    border-radius: 30px;
+    background-color: rgb(77, 77, 77);
+    border-color: rgb(77, 77, 77);
+}

@@ -1,0 +1,162 @@
+<div class="container my-4">
+    <div class="row justify-content-between">
+        <div class="col-md-3 mb-4">
+            <div class="card border-light" id="profile-card">
+                <img src="/img/profile/{{streamer.imagen}}" class="card-img-top img-thumbnail" alt="{{streamer.imagen}}" id="imagen-profile-user">
+                <div class="card-body">
+                    <div class="d-sm-block d-lg-none">
+                        <p class="h3 text-capitalize">
+                            {{streamer.name}} {{streamer.apellido}}
+                        </p>
+                        <p class="text-muted font-italic">
+                            Artista
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-1">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="col">
+                            <p class="text-muted">{{streamer.ubicacion}}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-1">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="col">
+                            <a href="http://">www.{{streamer.web}}.com</a>
+                        </div>
+                    </div>
+                    <hr class="border-light">
+                    <div class="row">
+                        <div class="col-4">
+                            <h5>Tags:</h5>
+                        </div>
+                        <div class="col">
+                            {{#each streamer.tags}}
+                                <a class="badge badge-danger" href="/tags/{{this}}">{{this}}</a>
+                                {{else}}
+                                No tiene tags agregados
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="row justify-content-between">
+                <div class="col-sm d-none d-lg-block d-xl-block">
+                    <p class="h3 text-capitalize">
+                        {{streamer.name}} {{streamer.apellido}}
+                    </p>
+                    <p class="text-muted font-italic">
+                        Artista
+                    </p>
+                </div>
+                <div class="text-center col">
+                    {{!--<i class="fas fa-users"></i> <br>--}}
+                    <span class="badge follows">
+                        {{#if streamer.total_videos}}
+                            {{streamer.total_videos}}
+                        {{else}}
+                            0
+                        {{/if}}
+                    </span>
+                    <p class="text-muted">
+                        Transmisiones
+                    </p>
+                </div>
+                <div class="text-center col">
+                    {{!--<i class="fas fa-users"></i> <br>--}}
+                    <span class="badge follows">
+                        {{#if streamer.total_seguidores}}
+                            {{streamer.total_seguidores}}
+                        {{else}}
+                            0
+                        {{/if}}
+                    </span>
+                    <p class="text-muted">
+                        Seguidores
+                    </p>
+                </div>
+                <div class="text-center col">
+                    {{!--<i class="fas fa-users"></i> <br>--}}
+                    <span class="badge follows">
+                        {{#if streamer.total_seguidos}}
+                            {{streamer.total_seguidos}}
+                        {{else}}
+                            0
+                        {{/if}}
+                    </span>
+                    <p class="text-muted">
+                        Siguiendo
+                    </p>
+                </div>
+            </div>
+            <nav id="profile-pane">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Información</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Videos</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <p class="mt-2">
+                        {{streamer.descripcion}}
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row justify-content-center mt-2">
+                        {{#if streamer.videos}}
+                            {{#each streamer.videos}}
+                                <div class="col-lg-6 my-4">
+                                    <div class="videoContainer embed-responsive embed-responsive-16by9" 
+                                            id="videoContainer{{this}}">
+                                        <video class="embed-responsive-item embed-responsive-item video-col-stream" 
+                                                src="/img/videos/{{this}}.webm" id="video{{this}}"
+                                                onclick="clickPlayVideo('{{this}}')">
+                                        </video>
+                                        <div class="controlsVideoBar">
+                                            <div class="orange-bar">
+                                                <input type="range" class="form-control-range orange-juice" max="100" min="0"
+                                                    step="1" value="100" id="orange-juice{{this}}">
+                                            </div>
+                                            <button class="btn btn-link btnPlayVideo" onclick="playVideo('{{this}}')"
+                                                    id="btnPlay{{this}}">
+                                                <i class="fas fa-pause" id="iconPlay{{this}}"></i>
+                                            </button>
+                                            <button class="btn btn-link btnMuteVideo"
+                                                    id="btnMute{{this}}">
+                                                <i class="fas fa-volume-up" id="iconMute{{this}}"></i>
+                                            </button>
+                                            <input type="range" class="custom-range volumeSlider" max="100" min="0" step="1"
+                                                    value="100" id="volumen{{this}}">
+                                            <button class="btn btn-link text-decoration-none text-light">
+                                                <span class="curtimeText" id="curtime{{this}}"></span> /
+                                                <span class="durtimeText" id="durtime{{this}}"></span>
+                                            </button>
+                                            <button class="btn btn-link btnFullScreen" id="btnFull{{this}}">
+                                                <i class="fas fa-expand"></i>
+                                            </button>
+                                            <button class="btn btn-link btnFullScreen" id="btnCancelFull{{this}}"
+                                                style="display: none;">
+                                                <i class="fas fa-compress"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{else}}
+                                No tiene videos aun
+                            {{/each}}
+                            {{else}}
+                                No tiene videos aun
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

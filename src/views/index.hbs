@@ -1,0 +1,189 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-bar col pb-4" id="col-bar-id">
+            <div class="nav flex-column" id="v-pills-tab" aria-orientation="vertical">
+                <span class="nav-link">
+                    <div id="row-txt">
+                        <span class="mr-1" id="txt">CANALES EN VIVO</span>
+                        <a data-toggle="pill" href="#" aria-selected="true" id="a-btn-contraer">
+                            <span id="btn-contraer" data-toggle="tooltip" title="Contraer">
+                                <i class="far fa-arrow-alt-circle-left"></i>
+                            </span>
+                        </a>
+                    </div>
+                </span>
+                <div id="sideBarChannels">
+                    {{#each streamers}}
+                        {{#if live}}
+                        <a class="nav-side-link-bar nav-link" href="/streaming/{{username}}"
+                            aria-controls="v-pills-home" aria-selected="true">
+                            <img src="/img/profile/{{imagen}}" alt="imagen" class="mr-2">
+                            <span class="text-capitalize" id="txt">{{name}} {{apellido}}</span>
+                        </a>
+                        {{else}}
+                            {{#if @first}}
+                                <a class="nav-side-link-bar nav-link" href="#"
+                                    aria-controls="v-pills-home" aria-selected="true" id="canales-no-life-index">
+                                    Aun no ha canales en vivo
+                                </a>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+                <span class="nav-link mb-2" id="span-redes">
+                    <div class="redes-sociales" id="redes-sociales">
+                        <a href=""><i class="fab fa-facebook-f" id="fb"></i></a>
+                        <a href=""><i class="fab fa-instagram" id="ig"></i></a>
+                        <a href=""><i class="fab fa-twitter" id="tw"></i></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div class="col-container col" id="col-container">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
+                    <div class="row justify-content-center mt-4">
+                        <div class="col" id="videos">
+                            <div class="row-justify-center">
+                                <h1>Canales más vistos hoy</h1>
+                            </div>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    {{#each streamers}}
+                                        {{#if @first}}
+                                            <div class="carousel-item active">
+                                            {{else}}
+                                            <div class="carousel-item">
+                                        {{/if}}
+                                        <a href="/profile/{{username}}">
+                                                {{#if imagen}}
+                                                <img src="/img/profile/{{imagen}}" class="d-block w-100" alt="...">
+                                                {{else}}
+                                                <img src="/img/LogoOnStage.png" class="d-block w-100" alt="...">
+                                                {{/if}}
+                                            </a>
+                                            <div class="carousel-caption">
+                                                <p class="h3 text-dark d-none d-lg-block text-capitalize">{{name}} {{apellido}}</p>
+                                                {{#if tags}}
+                                                    <p>
+                                                        {{#each tags}}
+                                                        <a class="text-decoration-none" href="/tags/{{this}}">
+                                                            <span class="badge badge-danger">{{this}}</span>
+                                                        </a>
+                                                        {{/each}}
+                                                    </p>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    {{!--POR SI NO HA ARTISTAS--}}
+                                    {{else}}
+                                    <div class="carousel-item active">
+                                        <a href="#">
+                                            <img src="/img/LogoOnStage.png" class="d-block w-100" alt="...">
+                                        </a>
+                                            <div class="carousel-caption">
+                                                <p class="h3 text-dark d-none d-lg-block text-capitalize">Nombre del canal</p>
+                                                    <p>
+                                                        <a class="text-decoration-none" href="/tags/Cultura">
+                                                            <span class="badge badge-danger">Cultura</span>
+                                                        </a>
+                                                        <a class="text-decoration-none" href="/tags/Teatro">
+                                                            <span class="badge badge-danger">Teatro</span>
+                                                        </a>
+                                                    </p>
+                                            </div>
+                                    </div>
+                                    {{!--FIN DEL ELSE--}}
+                                    {{/each}}
+                                    </div>
+                                    <a class="carousel-control-prev h1" href="#carouselExampleIndicators" role="button"
+                                        data-slide="prev">
+                                        <i class="fas fa-chevron-left text-dark"></i>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next h1" href="#carouselExampleIndicators" role="button"
+                                        data-slide="next">
+                                        <i class="fas fa-chevron-right text-dark"></i>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            <div class="row-justify-center mt-4">
+                                <h1>Otros canales que podrían gustarte</h1>
+                            </div>
+                            <div class="row justify-content-center">
+                                {{#each streamers}}
+                                    <div class="col-sm-4">
+                                        <a href="/streaming/{{username}}">
+                                            <img src="/img/LogoOnStage.png" class="img-fluid img-index-videos-fluid"
+                                                alt="imagen {{username}}">
+                                        </a>
+                                        <div class="media container-chat-videos container-chat-videos-streams darker-index">
+                                            <a href="/profile/{{username}}">
+                                                <img src="/img/profile/{{imagen}}" alt="Avatar" class="left">
+                                            </a>
+                                            <div class="media-body">
+                                                <a href="/profile/{{username}}"
+                                                class="text-decoration-none text-light">
+                                                <div class="">
+                                                    <p class="h3 text-capitalize">{{name}} {{apellido}}</p>
+                                                </div>
+                                            </a>
+                                            <p>{{descripcion}}</p>
+                                            {{#if tags}}
+                                                <p>
+                                                    {{#each tags}}
+                                                        <a class="text-decoration-none" href="/tags/{{this}}">
+                                                            <span class="badge badge-danger">{{this}}</span>
+                                                        </a>
+                                                    {{/each}}
+                                                </p>
+                                            {{/if}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{!--POR SI NO HAY CANALES--}}
+                                {{else}}
+                                    <div class="col-sm-4">
+                                        <a href="#">
+                                            <img src="/img/LogoOnStage.png" class="img-fluid img-index-videos-fluid"
+                                                alt="imagen">
+                                        </a>
+                                        <div class="container-chat-videos container-chat-videos-streams darker-index">
+                                            <a href="#">
+                                                <img src="/img/LogoOnStage.png" alt="Avatar" class="left">
+                                            </a>
+                                            <a href="#"
+                                                class="text-decoration-none text-light">
+                                                <div class="row justify-content-between">
+                                                    <p class="h3 text-capitalize">Nombre del canal</p>
+                                                </div>
+                                            </a>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                                <p>
+                                                    <a class="text-decoration-none" href="/tags/Cultura">
+                                                        <span class="badge badge-danger">Cultura</span>
+                                                    </a>
+                                                    <a class="text-decoration-none" href="/tags/Teatro">
+                                                        <span class="badge badge-danger">Teatro</span>
+                                                    </a>
+                                                </p>
+                                        </div>
+                                    </div>
+                                    {{!--FIN DEL ELSE--}}
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{> footer}}
+        </div>
+    </div>
+</div>
